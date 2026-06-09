@@ -34,11 +34,11 @@ body{
 
 <img
   id="soundBtn"
-  src="https://res.cloudinary.com/dkyjcwocf/image/upload/q_auto/f_auto/v1780356925/INSIGNIAS_4_gdnwbc.png"
+  src="https://res.cloudinary.com/dkyjcwocf/image/upload/q_auto/f_auto/v1781047142/725384_1_elfulc.png"
 />
 
 <audio id="audio">
-  <source src="https://res.cloudinary.com/dkyjcwocf/video/upload/q_auto/f_auto/v1779328677/Morunas_-_Morning_Lights_Official_Video_kyr7av.mp3" type="audio/mpeg">
+  <source src="https://res.cloudinary.com/dkyjcwocf/image/upload/q_auto/f_auto/v1780356925/INSIGNIAS_4_gdnwbc.png" type="audio/mpeg">
 </audio>
 
 <script>
@@ -46,9 +46,27 @@ body{
 const btn = document.getElementById("soundBtn");
 const audio = document.getElementById("audio");
 
+const playImage = "https://res.cloudinary.com/dkyjcwocf/image/upload/q_auto/f_auto/v1781047142/725384_1_elfulc.png";
+const pauseImage = "https://res.cloudinary.com/dkyjcwocf/image/upload/q_auto/f_auto/v1781047149/725384_pzu8h5.png";
+
 btn.addEventListener("click", () => {
-  audio.currentTime = 0;
-  audio.play();
+
+  if(audio.paused){
+
+    audio.play();
+    btn.src = pauseImage;
+
+  } else {
+
+    audio.pause();
+    btn.src = playImage;
+
+  }
+
+});
+
+audio.addEventListener("ended", () => {
+  btn.src = playImage;
 });
 
 </script>
